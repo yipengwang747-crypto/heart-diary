@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>心动交换日记</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC",
+        "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .container {
+      width: 92%;
+      max-width: 420px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 20px;
+      padding: 22px 20px 26px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      text-align: center;
+      font-size: 22px;
+      color: #ff5c8a;
+      letter-spacing: 1px;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 140px;
+      resize: none;
+      border-radius: 14px;
+      border: 1px solid #f2cbd4;
+      padding: 14px;
+      font-size: 15px;
+      line-height: 1.6;
+      outline: none;
+    }
+
+    textarea::placeholder {
+      color: #aaa;
+    }
+
+    button {
+      margin-top: 14px;
+      width: 100%;
+      height: 46px;
+      border: none;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #ff7aa2, #ff4d6d);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    .message {
+      margin-top: 14px;
+      font-size: 14px;
+      text-align: center;
+      color: #666;
+      min-height: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>💗 心动交换日记</h1>
+
+    <textarea
+      id="diary"
+      placeholder="在这里写下你此刻的心情、想说的话……&#10;（刷新页面内容不会保存）"
+    ></textarea>
+
+    <button onclick="sendMessage()">发送心动</button>
+
+    <div class="message" id="result"></div>
+  </div>
+
+  <script>
+    function sendMessage() {
+      const text = document.getElementById("diary").value.trim();
+      const result = document.getElementById("result");
+
+      if (!text) {
+        result.innerText = "💭 你还没有写下任何内容哦";
+        return;
+      }
+
+      result.innerText = "💌 心动已送出～愿被温柔接住";
+      document.getElementById("diary").value = "";
+    }
+  </script>
+</body>
+</html>
